@@ -19,6 +19,7 @@ builder.Services.AddAutoMapper(op => op.AddProfile<ShoppingAutoMapperProfile>())
 
 builder.Services.AddScoped<IAddressRepository, AddressRepository>();
 builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 var app = builder.Build();
 

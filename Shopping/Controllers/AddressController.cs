@@ -58,12 +58,12 @@ namespace Shopping.Controllers
         //    return NotFound("No Addresses are there please add your Address");
         //}
 
-        [HttpPost]
-        public async Task<IActionResult> AddAddress([FromBody] AddressInputDto addressDto)
-        {
-            await _addressRepository.AddAddress(_mapper.Map<Address>(addressDto));
+        //[HttpPost]
+        //public async Task<IActionResult> AddAddress([FromBody] AddressInputDto addressDto)
+        //{
+        //    await _addressRepository.AddAddress(_mapper.Map<Address>(addressDto));
 
-            return Ok();
-        }
+        //    return Ok();
+        //}
     }
 }
