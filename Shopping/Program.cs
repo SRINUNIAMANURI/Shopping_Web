@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using Shopping.AutoMapper;
 using Shopping.DATA;
+using Shopping.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,11 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddDbContext<ShoppingDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("ShoppingConnectionString")));
+
+builder.Services.AddAutoMapper(op => op.AddProfile<ShoppingAutoMapperProfile>());
+
+builder.Services.AddScoped<IAddressRepository, AddressRepository>();
+builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 
 var app = builder.Build();
 

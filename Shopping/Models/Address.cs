@@ -14,6 +14,7 @@ namespace Shopping.Models
         [Required, MaxLength(10)]
         public string ZipCode { get; set; }
         public int CustomerId { get; set; }
+
         [ForeignKey("CustomerId")]
         public Customer Customer { get; set; } // Navigation property for the Customer
     }
