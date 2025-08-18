@@ -20,9 +20,9 @@ namespace Shopping.Repository
             await dbContext.SaveChangesAsync();
         }
 
-        public async Task<Address> GetAddresByCustomerId(int id)
+        public async Task<List<Address>> GetAddresByCustomerId(int id)
         {
-            return await dbContext.Address.FirstOrDefaultAsync(ad => ad.CustomerId == id);
+            return await dbContext.Address.Where(a =>a.CustomerId == id).ToListAsync();
         }
 
         public async Task<Address> GetAddressById(int id)

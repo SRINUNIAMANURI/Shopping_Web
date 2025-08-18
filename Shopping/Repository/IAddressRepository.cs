@@ -7,7 +7,7 @@ namespace Shopping.Repository
     {
         Task<List<Address>> GetAllAddresses();
         Task<Address> GetAddressById(int id);
-        Task<Address> GetAddresByCustomerId(int id);
+        Task<List<Address>> GetAddresByCustomerId(int id);
 
         Task AddAddress(Address address);
 

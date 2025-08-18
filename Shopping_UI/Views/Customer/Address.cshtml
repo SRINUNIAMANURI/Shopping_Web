@@ -1,0 +1,40 @@
+﻿@model List<Shopping_UI.Models.AddressDto>
+
+<h1 class="mt-3">Address</h1>
+
+<div class="d-flex justify-content-end">
+    <a class="btn btn-secondary" asp-controller="Address" asp-action="Add">Add Address</a>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Street</th>
+            <th>City</th>
+            <th>Zipcode</th>
+            <th>CustomerId</th>
+            <th> </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@customer.Id</td>
+                <td>@customer.Street</td>
+                <td>@customer.Street</td>
+                <td>@customer.ZipCode</td>
+                <td>@customer.CustomerId</td>
+                <td>
+                    <a asp-controller="Address" asp-action="Edit" asp-route-id="@customer.Id"
+                       class="btn btn-primary">Edit</a>
+                </td>
+                <td>
+                    <a asp-controller="Address" asp-action="Delete" asp-route-id="@customer.Id"
+                       class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

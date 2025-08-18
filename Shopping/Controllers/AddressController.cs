@@ -37,26 +37,25 @@ namespace Shopping.Controllers
             return NotFound("No Addresses are there please add your Address");
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetAddressById(int id)
-        {
-            var address = await _addressRepository.GetAddressById(id);
-
-            if (address is not null) { return Ok(_mapper.Map<AddressDto>(address)); }
-
-            return NotFound("No Addresses are there please add your Address");
-        }
-
-        //[HttpGet("{customer_Id}")]
-        //[Route("Address/GetAddressByCustomerId")]
-        //public async Task<IActionResult> GetAddressByCustomerId(int customer_Id)
+        //[HttpGet("{id}")]
+        //public async Task<IActionResult> GetAddressById(int id)
         //{
-        //    var address = await _addressRepository.GetAddresByCustomerId(customer_Id);
+        //    var address = await _addressRepository.GetAddressById(id);
 
         //    if (address is not null) { return Ok(_mapper.Map<AddressDto>(address)); }
 
         //    return NotFound("No Addresses are there please add your Address");
         //}
+
+        [HttpGet("{customer_Id}")]
+        public async Task<IActionResult> GetAddressByCustomerId(int customer_Id)
+        {
+            var address = await _addressRepository.GetAddresByCustomerId(customer_Id);
+
+            if (address is not null) { return Ok(_mapper.Map<List<AddressDto>>(address)); }
+
+            return NotFound("No Addresses are there please add your Address");
+        }
 
         //[HttpPost]
         //public async Task<IActionResult> AddAddress([FromBody] AddressInputDto addressDto)

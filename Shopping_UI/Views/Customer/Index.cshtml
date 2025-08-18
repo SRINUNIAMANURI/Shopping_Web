@@ -1,0 +1,46 @@
+﻿@model List<Shopping_UI.Models.CustomerDto>
+
+<h1 class="mt-3">Customer</h1>
+
+<div class="d-flex justify-content-end">
+    <a class="btn btn-secondary" asp-controller="Customer" asp-action="Add">Add Product</a>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>CustomerId</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>PhoneNumber</th>
+            <th>Address</th>
+            <th> </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@customer.Id</td>
+                <td>@customer.FirstName</td>
+                <td>@customer.LastName</td>
+                <td>@customer.Email</td>
+                <td>@customer.PhoneNumber</td>
+                <td>@customer.Address.Street., @customer.Address.City, @customer.Address.ZipCode</td>
+              @*   <td>
+                    <a asp-controller="Customer" asp-action="Address" asp-route-id="@customer.Id"
+                       class="btn btn-primary">Address</a>
+                </td> *@
+                <td>
+                    <a asp-controller="Customer" asp-action="Edit" asp-route-id="@customer.Id"
+                       class="btn btn-primary">Edit</a>
+                </td>
+                <td>
+                    <a asp-controller="Customer" asp-action="Delete" asp-route-id="@customer.Id"
+                       class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

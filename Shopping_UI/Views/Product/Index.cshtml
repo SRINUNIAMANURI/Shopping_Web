@@ -1,0 +1,38 @@
+﻿@model List<Shopping_UI.Models.DTO_s.ProductDto>
+
+<h1 class="mt-3">Products</h1>
+
+<div class="d-flex justify-content-end">
+    <a class="btn btn-secondary" asp-controller="Product" asp-action="Add">Add Product</a>
+</div>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th> </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>@product.Description</td>
+                <td>
+                    <a asp-controller="Product" asp-action="Edit" asp-route-id="@product.Id"
+                       class="btn btn-primary">Edit</a>
+                </td>
+                <td>
+                    <a asp-controller="Product" asp-action="Delete" asp-route-id="@product.Id"
+                       class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
